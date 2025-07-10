@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: manager-app
+
+server:
+  port: 8080
+
+product-list:
+  services:
+    catalog-service:
+      uri: http://localhost:8081

@@ -1,6 +1,6 @@
-package ru.alexbat.managerapp.service;
+package ru.alexbat.catalogueservice.service;
 
-import ru.alexbat.managerapp.entity.Product;
+import ru.alexbat.catalogueservice.entity.Product;
 
 import java.util.List;
 import java.util.Optional;

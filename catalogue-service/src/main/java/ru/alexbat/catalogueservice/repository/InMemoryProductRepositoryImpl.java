@@ -1,7 +1,7 @@
-package ru.alexbat.managerapp.repository;
+package ru.alexbat.catalogueservice.repository;
 
 import org.springframework.stereotype.Repository;
-import ru.alexbat.managerapp.entity.Product;
+import ru.alexbat.catalogueservice.entity.Product;
 
 import java.util.Collections;
 import java.util.Comparator;

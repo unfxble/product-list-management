@@ -1,9 +1,9 @@
-package ru.alexbat.managerapp.service;
+package ru.alexbat.catalogueservice.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.alexbat.managerapp.entity.Product;
-import ru.alexbat.managerapp.repository.ProductRepository;
+import ru.alexbat.catalogueservice.entity.Product;
+import ru.alexbat.catalogueservice.repository.ProductRepository;
 
 import java.util.List;
 import java.util.NoSuchElementException;
