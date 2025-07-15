@@ -1,11 +1,12 @@
 package ru.alexbat.catalogueservice.service;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import ru.alexbat.catalogueservice.entity.Product;
 import ru.alexbat.catalogueservice.repository.ProductRepository;
 
-import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -16,11 +17,16 @@ public class DefaultProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
 
     @Override
-    public List<Product> findAllProducts() {
-        return productRepository.findAll();
+    public Iterable<Product> findAllProducts(String filter) {
+        if (StringUtils.hasText(filter)) {
+            return productRepository.findAllByTitleLikeIgnoreCase("%" + filter + "%");
+        } else {
+            return productRepository.findAll();
+        }
     }
 
     @Override
+    @Transactional
     public Product createProduct(String title, String details) {
         return productRepository.save(new Product(null, title, details));
     }
@@ -31,6 +37,7 @@ public class DefaultProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public void updateProduct(Integer id, String title, String details) {
         productRepository.findById(id).ifPresentOrElse(product -> {
                 product.setTitle(title);
@@ -42,6 +49,7 @@ public class DefaultProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public void deleteProduct(Integer id) {
         productRepository.deleteById(id);
     }

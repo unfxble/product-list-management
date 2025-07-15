@@ -2,12 +2,11 @@ package ru.alexbat.catalogueservice.service;
 
 import ru.alexbat.catalogueservice.entity.Product;
 
-import java.util.List;
 import java.util.Optional;
 
 public interface ProductService {
 
-    List<Product> findAllProducts();
+    Iterable<Product> findAllProducts(String filter);
 
     Product createProduct(String title, String details);
 

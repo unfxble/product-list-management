@@ -1,6 +1,22 @@
+server:
+  port: 8081
+
 spring:
   application:
     name: catalogue-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/catalogue
+    username: catalogue
+    password: catalogue
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    schemas:
+      - public
+      - catalogue
+  jpa:
+    show-sql: true
 
-server:
-  port: 8081
+logging:
+  level:
+    sql: debug
