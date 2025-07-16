@@ -1,6 +1,18 @@
 spring:
   application:
     name: manager-app
+  datasource:
+    url: jdbc:postgresql://localhost:5433/manager
+    username: manager
+    password: manager
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    schemas:
+      - public
+      - user_management
+  jpa:
+    show-sql: true
 
 server:
   port: 8080
@@ -9,3 +21,5 @@ product-list:
   services:
     catalog-service:
       uri: http://localhost:8081
+      username: catalogue_service_user
+      password: password

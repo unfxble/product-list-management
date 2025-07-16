@@ -1,6 +1,3 @@
-server:
-  port: 8081
-
 spring:
   application:
     name: catalogue-service
@@ -16,7 +13,12 @@ spring:
       - catalogue
   jpa:
     show-sql: true
+  security:
+    user:
+      name: catalogue_service_user
+      password: '{noop}password'
+      roles:
+        - SERVICE
 
-logging:
-  level:
-    sql: debug
+server:
+  port: 8081
