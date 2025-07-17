@@ -14,11 +14,15 @@ spring:
   jpa:
     show-sql: true
   security:
-    user:
-      name: catalogue_service_user
-      password: '{noop}password'
-      roles:
-        - SERVICE
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8082/realms/product-manager
+#    user:
+#      name: catalogue_service_user
+#      password: '{noop}password'
+#      roles:
+#        - SERVICE
 
 server:
   port: 8081

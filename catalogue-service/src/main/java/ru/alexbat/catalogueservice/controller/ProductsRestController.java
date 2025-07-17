@@ -2,6 +2,7 @@ package ru.alexbat.catalogueservice.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
@@ -16,17 +17,21 @@ import ru.alexbat.catalogueservice.controller.payload.NewProductPayload;
 import ru.alexbat.catalogueservice.entity.Product;
 import ru.alexbat.catalogueservice.service.ProductService;
 
+import java.security.Principal;
 import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/catalogue-api/products")
+@Slf4j
 public class ProductsRestController {
 
     private final ProductService productService;
 
     @GetMapping
-    public Iterable<Product> findProducts(@RequestParam(value = "filter", required = false) String filter) {
+    public Iterable<Product> findProducts(@RequestParam(value = "filter", required = false) String filter,
+                                          Principal principal) {
+        log.info("Principal: {}", principal);
         return productService.findAllProducts(filter);
     }
 
