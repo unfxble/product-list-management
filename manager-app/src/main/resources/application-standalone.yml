@@ -5,12 +5,13 @@ spring:
     url: jdbc:postgresql://localhost:5433/manager
     username: manager
     password: manager
-  flyway:
-    enabled: true
-    baseline-on-migrate: true
-    schemas:
-      - public
-      - user_management
+    driver-class-name: org.postgresql.Driver
+#  flyway:
+#    enabled: true
+#    baseline-on-migrate: true
+#    schemas:
+#      - public
+#      - user_management
   jpa:
     show-sql: true
   security:

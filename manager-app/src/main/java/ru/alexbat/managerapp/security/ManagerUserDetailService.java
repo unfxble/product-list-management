@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.alexbat.managerapp.entity.Authority;
 import ru.alexbat.managerapp.repository.ManagerUserRepository;
 
-@Service
+//@Service
 @RequiredArgsConstructor
 public class ManagerUserDetailService implements UserDetailsService {
 

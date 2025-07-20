@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>manager-app</module>
+        <module>catalogue-service</module>
     </modules>
 
     <properties>
@@ -56,6 +57,19 @@
                         </exclude>
                     </excludes>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.2.5</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
